@@ -33,4 +33,3 @@ cat ${T_DIR}/test-plan.jtl
 
 echo "==== HTML Test Report ===="
 echo "See HTML test report in ${R_DIR}/index.html"
-cp ${R_DIR} /mnt/image_storage/jmet -R

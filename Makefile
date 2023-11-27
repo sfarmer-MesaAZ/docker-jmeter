@@ -1,11 +1,11 @@
-TARGET_HOST ?= "example.com"
-TARGET_PORT ?= "80"
+TARGET_HOST ?= "mndevl.mesanow.mesa"
+TARGET_PORT ?= "30080"
 THREADS ?= "1"
 CONTAINER_NAME ?= "docker-jmeter"
-IMAGE = "justb4/jmeter:5.5"
+IMAGE = "justb4/jmeter:5.6.2"
 TEST ?= trivial
 JVM_ARGS ?= "-Xms1g -Xmx1g -XX:MaxMetaspaceSize=256m"
-TARGET_PATH ?= "/index.html"
+TARGET_PATH ?= "/mapp/utilities/ping"
 TARGET_KEYWORD ?= "domain"
 
 TEST_DIR = tests/$(TEST)
@@ -33,3 +33,5 @@ report:
 	cat $(TEST_DIR)/test-plan.jtl
 	echo "==== HTML Test Report ===="
 	echo "See HTML test report in $(REPORT_DIR)/index.html"
+
+	cp $(TEST_DIR)/report mnt/image_storage/jmet -R

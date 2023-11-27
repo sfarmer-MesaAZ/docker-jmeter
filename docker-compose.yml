@@ -1,0 +1,17 @@
+version: '3.3'
+
+
+
+services:
+  jmeter:     
+     container_name: jmet
+#     build:
+#       context: ./
+#       dockerfile: Dockerfile
+     image: justb4/jmeter
+     ports:
+     - '30080:30080'
+     extra_hosts:
+       - 'mndevl.mesanow.mesa:10.101.105.110'
+
+

@@ -4,7 +4,7 @@ FROM alpine:3.12
 
 MAINTAINER Just van den Broecke<just@justobjects.nl>
 
-ARG JMETER_VERSION="5.5"
+ARG JMETER_VERSION="5.6.2"
 ENV JMETER_HOME /opt/apache-jmeter-${JMETER_VERSION}
 ENV JMETER_CUSTOM_PLUGINS_FOLDER /plugins
 ENV	JMETER_BIN	${JMETER_HOME}/bin
@@ -26,6 +26,14 @@ RUN    apk update \
 	&& mkdir -p /opt  \
 	&& tar -xzf /tmp/dependencies/apache-jmeter-${JMETER_VERSION}.tgz -C /opt  \
 	&& rm -rf /tmp/dependencies
+
+#work around for getting entries into host file of built image
+#RUN --privileged cp /etc/hosts /tmp/hosts && \
+#umount /etc/hosts && \
+#cp /tmp/hosts /etc/hosts && \
+#echo "10.101.105.110 mndevl.mesanow.mesa" >> /etc/hosts && \
+#cat /etc/hosts
+#RUN echo 10.101.105.110 mndevl.mesanow.mesa >> /etc/hosts
 
 # TODO: plugins (later)
 # && unzip -oq "/tmp/dependencies/JMeterPlugins-*.zip" -d $JMETER_HOME

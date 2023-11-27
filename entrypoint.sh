@@ -33,6 +33,7 @@ echo "jmeter ALL ARGS=${EXTRA_ARGS} $@"
 jmeter ${EXTRA_ARGS} $@
 
 echo "END Running Jmeter on `date`"
+sleep infinity
 
 #     -n \
 #    -t "/tests/${TEST_DIR}/${TEST_PLAN}.jmx" \
